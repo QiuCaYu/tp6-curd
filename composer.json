@@ -1,0 +1,34 @@
+{
+    "name": "cayu/tp6-curd",
+    "description": "基于thinkphp6的一键生成控制器,验证器,模型。",
+    "type": "library",
+    "require": {
+        "php": ">=7.3",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "topthink/framework": "^6.0.0",
+        "symfony/var-exporter": "^5.3"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "cayu",
+            "email": "qiujiayu@mhace.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "cayu\\tp6curd\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "extra": {
+        "think": {
+            "services": [
+                "cayu\\tp6curd\\service\\ConsoleService"
+            ]
+        }
+    }
+}
