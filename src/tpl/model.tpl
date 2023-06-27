@@ -2,9 +2,9 @@
 
 namespace app<namespace>model;
 
-use think\model;
+<useModel>;
 
-class <model> extends Model
+class <model> extends BaseModel
 {
     /**
     * 获取分页列表

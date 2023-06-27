@@ -1,8 +1,23 @@
 <?php
+namespace app\<PATH>;
 
-namespace app<namespace>controller;
+use think\App;
 
-class Base extends \app\BaseController
+/**
+ * 控制器基础类
+ */
+abstract class BaseController extends \app\routing\BaseController
 {
+    public $middleware = [
+
+    ];
+    
+    // 初始化
+    protected function initialize()
+    {
+        if($this->request->isPost() !== true){
+
+        }
+    }
 
 }
