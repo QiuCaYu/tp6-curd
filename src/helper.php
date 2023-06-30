@@ -48,3 +48,30 @@ if (!function_exists('pageReturn')) {
         return ['code' => 0, 'msg' => 'ok', 'count' => 0, 'data' => []];
     }
 }
+
+/**
+ * 多级转换下划线数组转换成小驼峰
+ * @param $data
+ * @return array|mixed
+ * @author qjy 2021/12/28
+ * @update qjy 2021/12/28
+ */
+function camelArray($data){
+    if(!$data){
+        return [];
+    }
+    foreach ($data as $key => $value) {
+        $camelKey = \think\helper\Str::camel($key);
+        if (is_array($value)) {
+            $data[$camelKey] = camelArray($value);
+        }
+        else {
+            $data[$camelKey] = $value;
+        }
+        // 去重，删除数据组内下划线
+        if ($camelKey != $key) {
+            unset($data[$key]);
+        }
+    }
+    return $data;
+}

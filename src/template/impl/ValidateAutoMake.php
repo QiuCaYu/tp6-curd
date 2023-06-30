@@ -8,6 +8,7 @@ use Symfony\Component\VarExporter\VarExporter;
 use think\console\Output;
 use think\facade\App;
 use think\facade\Db;
+use think\helper\Str;
 
 class ValidateAutoMake implements IAutoMake
 {
@@ -135,6 +136,8 @@ class ValidateAutoMake implements IAutoMake
                 $attributesArr = $attributes;
                 unset($ruleArr['id']);
                 unset($attributesArr['id']);
+                $ruleArr = camelArray($ruleArr);
+                $attributesArr = camelArray($attributesArr);
                 $ruleArr = VarExporter::export($ruleArr);
                 $attributesArr = VarExporter::export($attributesArr);
                 $tplContent = str_replace('<rule>', $ruleArr, $tplContent);
@@ -149,4 +152,5 @@ class ValidateAutoMake implements IAutoMake
             }
         }
     }
+
 }

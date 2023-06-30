@@ -53,7 +53,6 @@ class Curd extends Command
         $context = new AutoMakeStrategy();
 
         // 执行生成controller策略
-
         $context->Context(new ControllerAutoMake());
         $context->executeStrategy($controller, $path, $this->getTable(),$this->getDb());
 
